@@ -9,6 +9,7 @@ import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ComponentsQComponent } from './components/componentsQ.component';
+import { ComponentsIComponent } from './components/componentsI.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes =[
     { path: 'examples/landing',     component: LandingComponent },
     { path: 'examples/login',       component: LoginComponent },
     { path: 'informacion',          component: ComponentsQComponent },
+    { path: 'imagenes',          component: ComponentsIComponent },
     { path: 'examples/profile',     component: ProfileComponent }
 ];
 
