@@ -16,7 +16,6 @@ const routes: Routes =[
     { path: 'nucleoicons',          component: NucleoiconsComponent },
     { path: 'examples/landing',     component: LandingComponent },
     { path: 'examples/login',       component: LoginComponent },
-    { path: '', redirectTo: 'informacion', pathMatch: 'full' },
     { path: 'informacion',          component: ComponentsQComponent },
     { path: 'examples/profile',     component: ProfileComponent }
 ];
