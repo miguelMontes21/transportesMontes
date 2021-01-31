@@ -20,8 +20,11 @@ img {
   margin: auto;
   -webkit-perspective-origin: top center;
           perspective-origin: top center;
-  position: relative;
+  position: absolute;
   box-sizing: border-box;
+  bottom: 10;
+  left: 0;
+  right: 0;
 }
 .slider__item {
   position: absolute;
