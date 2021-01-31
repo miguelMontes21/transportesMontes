@@ -28,7 +28,7 @@
             ],
             "scripts": [
               "node_modules/rellax/rellax.min.js",
-              "node_modules/jquery/dist/jquery.js"
+              "./node_modules/jquery/dist/jquery.min.js"
 
               
             ]
@@ -79,7 +79,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
               "node_modules/rellax/rellax.min.js",
-              "node_modules/jquery/dist/jquery.js"
+              "./node_modules/jquery/dist/jquery.min.js"
             ],
             "styles": [
               "src/styles.scss",
