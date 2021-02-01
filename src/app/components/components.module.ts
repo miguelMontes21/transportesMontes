@@ -15,6 +15,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { ComponentsQComponent } from './componentsQ.component';
 import { ComponentsIComponent } from './componentsI.component';
+import { ComponentsCComponent } from './componentsC.component';
+
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { ComponentsIComponent } from './componentsI.component';
         NotificationComponent,
         ComponentsQComponent,
         ComponentsIComponent,
+        ComponentsCComponent,
+
         NgbdModalBasic
     ],
     exports:[ ComponentsComponent ]

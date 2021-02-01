@@ -10,6 +10,7 @@ import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ComponentsQComponent } from './components/componentsQ.component';
 import { ComponentsIComponent } from './components/componentsI.component';
+import { ComponentsCComponent } from './components/componentsC.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes =[
     { path: 'examples/login',       component: LoginComponent },
     { path: 'informacion',          component: ComponentsQComponent },
     { path: 'imagenes',          component: ComponentsIComponent },
+    { path: 'contactos',          component: ComponentsCComponent },
     { path: 'examples/profile',     component: ProfileComponent }
 ];
 
