@@ -1,45 +1,62 @@
-
-
-import { ConnectionService } from './connection.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
+import * as Rellax from 'rellax';
 
 @Component({
-  selector: 'app-components',
-  templateUrl: './componentsC.component.html'
-})
-export class ComponentsCComponent {
-
-contactForm: FormGroup;
-disabledSubmitButton: boolean = true;
-optionsSelect: Array<any>;
-
-  @HostListener('input') oninput() {
-
-  if (this.contactForm.valid) {
-    this.disabledSubmitButton = false;
+    selector: 'app-components',
+    templateUrl: './componentsC.component.html',
+    styles: [`
+    ngb-progressbar {
+        margin-top: 5rem;
     }
-  }
+    `]
+})
 
-  constructor(private fb: FormBuilder, private connectionService: ConnectionService) {
+export class ComponentsCComponent implements OnInit, OnDestroy {
+    data : Date = new Date();
 
-  this.contactForm = fb.group({
-    'contactFormName': ['', Validators.required],
-    'contactFormEmail': ['', Validators.compose([Validators.required, Validators.email])],
-    'contactFormSubjects': ['', Validators.required],
-    'contactFormMessage': ['', Validators.required],
-    'contactFormCopy': [''],
-    });
-  }
+    page = 4;
+    page1 = 5;
+    page2 = 3;
+    focus;
+    focus1;
+    focus2;
 
-  onSubmit() {
-    this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
-      alert('Your message has been sent.');
-      this.contactForm.reset();
-      this.disabledSubmitButton = true;
-    }, error => {
-      console.log('Error', error);
-    });
-  }
+    date: {year: number, month: number};
+    model: NgbDateStruct;
 
-  }
+    public isCollapsed = true;
+    public isCollapsed1 = true;
+    public isCollapsed2 = true;
+
+    state_icon_primary = true;
+
+    constructor( private renderer : Renderer2, config: NgbAccordionConfig) {
+        config.closeOthers = true;
+        config.type = 'info';
+    }
+    isWeekend(date: NgbDateStruct) {
+        const d = new Date(date.year, date.month - 1, date.day);
+        return d.getDay() === 0 || d.getDay() === 6;
+    }
+
+    isDisabled(date: NgbDateStruct, current: {month: number}) {
+        return date.month !== current.month;
+    }
+
+    ngOnInit() {
+      var rellaxHeader = new Rellax('.rellax-header');
+
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.add('navbar-transparent');
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.add('index-page');
+    }
+    ngOnDestroy(){
+        var navbar = document.getElementsByTagName('nav')[0];
+        navbar.classList.remove('navbar-transparent');
+        var body = document.getElementsByTagName('body')[0];
+        body.classList.remove('index-page');
+    }
+}
